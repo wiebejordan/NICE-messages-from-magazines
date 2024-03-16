@@ -70,7 +70,7 @@ function App() {
             disabled={!message || !msgSource}
             onClick={() => testSource()}
           >
-            Tester
+            Test
           </button>
           <button
             className="clear-button"
