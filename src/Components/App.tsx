@@ -1,11 +1,11 @@
 import { useState } from "react";
-import "./styles/App.scss";
+import "../styles/App.scss";
 
 type SourceObject = {
   [key: string]: number;
 };
 
-function App() {
+const App = () => {
   const [message, setMessage] = useState("");
   const [msgSource, setMsgSource] = useState("");
   const [testResult, setTestResult] = useState<boolean | null>(null);
@@ -16,11 +16,14 @@ function App() {
     let result = true;
 
     for (const character of msgSource) {
-      sourceToCharacters[character] = sourceToCharacters[character] + 1 || 1;
+      const formatCharacter = character.toLowerCase();
+      sourceToCharacters[formatCharacter] =
+        sourceToCharacters[formatCharacter] + 1 || 1;
     }
 
     for (const char of message) {
-      msgToCharacters[char] = msgToCharacters[char] + 1 || 1;
+      const formatChar = char.toLowerCase();
+      msgToCharacters[formatChar] = msgToCharacters[formatChar] + 1 || 1;
     }
 
     for (const [key] of Object.entries(msgToCharacters)) {
@@ -66,28 +69,29 @@ function App() {
 
         <div className="button-container">
           <button
-            className="test-button"
-            disabled={!message || !msgSource}
-            onClick={() => testSource()}
-          >
-            Test
-          </button>
-          <button
             className="clear-button"
-            disabled={testResult === null}
+            disabled={testResult === null && !message && !msgSource}
             onClick={() => {
               setMessage("");
               setMsgSource("");
               setTestResult(null);
             }}
           >
-            clear results
+            {testResult !== null ? "reset" : "clear"}
+          </button>
+          <button
+            className="test-button"
+            disabled={!message || !msgSource}
+            onClick={() => testSource()}
+          >
+            Test
           </button>
         </div>
 
         <div className="results-container">
           <p>
-            Test Results: {testResult && message && msgSource && "Success!"}
+            Test Results:{" "}
+            {testResult && message && msgSource && <b>"Success!"</b>}
             {testResult === false && message && msgSource && "Fail"}
             {testResult === null && " "}
           </p>
@@ -95,6 +99,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
