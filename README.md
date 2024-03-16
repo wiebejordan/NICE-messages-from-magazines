@@ -31,3 +31,4 @@ export default {
 # NICE-messages-from-magazines
 # NICE-messages-from-magazines
 # NICE-messages-from-magazines
+# NICE-messages-from-magazines
