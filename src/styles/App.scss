@@ -1,22 +1,23 @@
-$primary-color-main: rgb(85,109,255);
-$primary-color-secondary: rgb(168,175,255);
+$primary-color-main: rgb(17, 185, 22);
+$primary-color-secondary: rgb(17, 209, 24);
 
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
 }
-
+  
 .container {
   padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 500px;
-  background-color: aquamarine;
+  height: 300px;
+  background-color: rgb(20, 65, 117);
   width: 40vw;
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgb(128, 126, 126);
+  margin-bottom: 100px;
 }
 
 .inputs-container {
@@ -24,33 +25,43 @@ $primary-color-secondary: rgb(168,175,255);
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
+  height: auto;
+  color: white;
+  .input-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    label {
+      padding-bottom: 4px;
+    }
+  }
   input {
     width: 40vw;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: white;
-  color: black
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+  }
+
+  .results-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    b {
+      color: $primary-color-secondary;
+    }
   }
 }
 
-.input-label {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 8px;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  label {
-    padding-bottom: 4px;
-  }
-}
 
 .button-container {
   display: flex;
@@ -65,42 +76,36 @@ $primary-color-secondary: rgb(168,175,255);
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    box-shadow: 2px 2px 2px rgb(60, 59, 59);
+    transition: background-color 0.25s ease, border-color 0.25s ease,
+      color 0.25s ease;
     color: white;
     width: 140px;
-      &:disabled {
-        color: grey;
-        cursor: default;
-        
-      }
+    &:disabled {
+      color: grey;
+      cursor: default;
     }
+  }
 
-.test-button {
+  .test-button {
     background-color: $primary-color-main;
     &:hover {
-       background-color: $primary-color-secondary;
-      }
+      background-color: $primary-color-secondary;
+    }
     &:disabled {
-        background-color: darkgray;
+      background-color: darkgray;
     }
   }
   .clear-button {
     background-color: transparent;
-    border: 2px solid black;
-    color: black;
+    border: 2px solid white;
+    &:hover {
+      background-color: rgba(232, 230, 230, 0.3);
+    }
     &:disabled {
-        color: darkgray;
-        border-color: darkgrey;
+      border-color: darkgray;
     }
   }
-
-  .results-container{
-    width: 40vw;
-    display: flex;
-    justify-content: flex-start;
-     p {
-      width: 40px;
-     }
-  }
-
 }
+
+
