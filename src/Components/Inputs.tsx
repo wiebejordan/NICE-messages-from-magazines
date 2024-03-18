@@ -45,8 +45,13 @@ const Inputs = ({
       </div>
       <div className="results-container">
         <p data-testid="result-text">
-          Test Result: {testResult && message && msgSource && <b>Success!</b>}
-          {testResult === false && message && msgSource && "Fail"}
+          Test Result:{" "}
+          {testResult && message && msgSource && (
+            <b className="success-text">Success!</b>
+          )}
+          {testResult === false && message && msgSource && (
+            <b className="fail-text">Fail</b>
+          )}
         </p>
       </div>
     </div>

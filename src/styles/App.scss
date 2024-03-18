@@ -56,8 +56,11 @@ $primary-color-secondary: rgb(17, 209, 24);
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    b {
+    .success-text {
       color: $primary-color-secondary;
+    }
+    .fail-text {
+      color: rgb(255, 226, 4)
     }
   }
 }
